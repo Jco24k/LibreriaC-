@@ -42,11 +42,11 @@ namespace LibreriaMVC.Controllers
                 {
                     db.Clientes.Add(newCliente);
                     db.SaveChanges();
-                    ViewData["MENSAJE"] = "ALUMNO REGISTRADO CORRECTAMENTE";
+                    ViewData["MENSAJE"] = "CLIENTE REGISTRADO CORRECTAMENTE";
                 }
                 else
                 {
-                    ViewData["MENSAJE"] = "NO SE REALIZO EL REGISTRO (CODIGO EXISTENTE), DIGITE OTRO CODIGO";
+                    ViewData["MENSAJE"] = "NO SE REALIZO EL REGISTRO (DNI EXISTENTE), DIGITE OTRO DNI";
                 }
                 return View(newCliente);
             }
@@ -109,7 +109,7 @@ namespace LibreriaMVC.Controllers
                 {
                     db.Clientes.Remove(cli);
                     db.SaveChanges();
-                    ViewData["MENSAJE"] = "ALUMNO ELIMINADO CORRECTAMENTE";
+                    ViewData["MENSAJE"] = "CLIENTE ELIMINADO CORRECTAMENTE";
                 }
                 else
                 {

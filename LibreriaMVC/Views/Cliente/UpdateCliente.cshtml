@@ -1,0 +1,66 @@
+﻿@model LibreriaMVC.Models.Cliente
+
+@{
+    ViewData["Title"] = "UpdateCliente";
+}
+
+<h1>Actualizar Cliente</h1>
+@if(@ViewData["MENSAJE"] != null){
+   <div class="alert alert-success">
+        <strong>@ViewData["MENSAJE"]</strong>
+    </div>
+}
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateCliente">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Dni" class="control-label"></label>
+                <input asp-for="Dni" class="form-control" required/>
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombres" class="control-label"></label>
+                <input asp-for="Nombres" class="form-control" required/>
+                <span asp-validation-for="Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApPaterno" class="control-label"></label>
+                <input asp-for="ApPaterno" class="form-control" required/>
+                <span asp-validation-for="ApPaterno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApMaterno" class="control-label"></label>
+                <input asp-for="ApMaterno" class="form-control" required/>
+                <span asp-validation-for="ApMaterno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genero" class="control-label"></label>
+                <select class="form-control" asp-for="Genero" required>
+                    <option value="M">MASCULINO</option>
+                    <option value="F">FEMENINO</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <select class="form-control" asp-for="Estado" required>
+                    <option value="ACTIVO">Activo</option>
+                    <option value="INACTIVO">Inactivo</option>
+                </select>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />|
+                 <span style="font-weight:bold"><a asp-action="ListarCliente">Ir al Listado</a></span>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

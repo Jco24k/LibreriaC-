@@ -1,0 +1,57 @@
+﻿@model LibreriaMVC.Models.Producto
+
+@{
+    ViewData["Title"] = "UpdateProducto";
+}
+<h1>Actualizar Producto</h1>
+
+@if(@ViewData["MENSAJE"] != null){
+   <div class="alert alert-success">
+        <strong>@ViewData["MENSAJE"]</strong>
+    </div>
+}
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateProducto">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Marca" class="control-label"></label>
+                <input asp-for="Marca" class="form-control" required />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" required/>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock" class="control-label"></label>
+                <input asp-for="Stock" class="form-control" required/>
+                <span asp-validation-for="Stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" required/>
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdProveedor" class="control-label"></label>
+                <select asp-for="IdProveedor" class ="form-control" asp-items="ViewBag.PROVEEDORES"></select>
+
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />|
+                 <span style="font-weight:bold"><a asp-action="ListarProducto">Ir al Listado</a></span>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

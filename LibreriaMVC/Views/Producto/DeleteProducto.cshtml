@@ -1,0 +1,56 @@
+﻿@model LibreriaMVC.Models.Producto
+
+@{
+    ViewData["Title"] = "DeleteProducto";
+}
+<h1>Eliminar Producto</h1>
+
+@if(@ViewData["MENSAJE"] != null){
+   <div class="alert alert-success">
+        <strong>@ViewData["MENSAJE"]</strong>
+    </div>
+}
+<br />
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdProveedorNavigation.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdProveedorNavigation.Nombre)
+        </dd class>
+    </dl>
+    <br />
+      <form asp-action="DeleteProducto">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <span style="font-weight:bold"><a asp-action="ListarProducto">Ir al Listado</a></span>
+       </form>
+    <br />
+</div>

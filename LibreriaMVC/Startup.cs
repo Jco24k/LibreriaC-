@@ -46,7 +46,7 @@ namespace LibreriaMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Cliente}/{action=ListarCliente}/{id?}");
+                    pattern: "{controller=Producto}/{action=ListarProducto}/{id?}");
             });
         }
     }

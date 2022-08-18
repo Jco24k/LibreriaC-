@@ -1,0 +1,64 @@
+﻿@model IEnumerable<LibreriaMVC.Models.Cliente>
+
+@{
+    ViewData["Title"] = "ListarCliente";
+}
+
+<h1>Listar Cliente</h1>
+
+<h4>
+    <a asp-action="CreateCliente">Crear Cliente</a>
+</h4>
+<table class="table text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApPaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApMaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApPaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApMaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-action="UpdateCliente" asp-route-id="@item.Id">Actualizar</a> |
+                <a asp-action="DeleteCliente" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

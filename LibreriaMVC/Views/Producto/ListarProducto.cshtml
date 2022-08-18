@@ -1,0 +1,58 @@
+﻿@model IEnumerable<LibreriaMVC.Models.Producto>
+
+@{
+    ViewData["Title"] = "ListarProducto";
+}
+
+<h1>Listar Producto</h1>
+
+<h4>
+    <a asp-action="CreateProducto">Create Nuevo Producto</a>
+</h4>
+<table class="table text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProveedorNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProveedorNavigation.Nombre)
+            </td>
+            <td>
+                <a asp-action="UpdateProducto" asp-route-id="@item.Id">Actualizar</a> |
+                <a asp-action="DeleteProducto" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<LibreriaMVC.Models.PA_PRODUCTOS_STOCK>
+
+@{
+    ViewData["Title"] = "ListarProductoStock";
+}
+
+<h1>Listar Productos por Stock</h1>
+@using (Html.BeginForm())
+{
+
+
+    <div>
+        <label for="min">Digite el Stock minimo: </label>
+        <input type="text" id="min" name="min" value="@ViewBag.MIN" class="form-control" >
+        <br/>
+        <label for="max">Digite el Stock maximo: </label>
+        <input type="text" name="max" id="max" value="@ViewBag.MAX" class="form-control" >
+        <br/>
+        <input type="submit" value="Consultar" class="btn btn-primary">
+    </div>
+}
+<br />
+<table class="table text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total)
+            </th>
+            <th>
+                Proveedor
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+                
+<br />
+ <div class="alert alert-primary">
+    <strong>Cantidad de filas: </strong> @ViewBag.FILAS <br />
+    <strong>Total de dinero: </strong> @ViewBag.TOTAL <br />
+</div>

@@ -21,6 +21,11 @@ namespace LibreriaMVC.Models
         public virtual DbSet<Producto> Productos { get; set; }
         public virtual DbSet<Proveedor> Proveedors { get; set; }
 
+        public DbSet<PA_PRODUCTOS_PROVEEDOR> PA_PRODUCTOS_PROVEEDOR { get; set; }
+        public DbSet<PA_PRODUCTOS_STOCK> PA_PRODUCTOS_STOCK { get; set; }
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
